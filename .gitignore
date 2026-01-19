@@ -1,0 +1,14 @@
+# npm
+node_modules
+package-lock.json
+*.log
+*.gz
+
+# build folder
+
+build.env
+
+# env files
+.env
+.env.*
+env.local
