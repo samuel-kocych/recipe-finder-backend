@@ -110,6 +110,7 @@ export const createRecipe = async (req: Request, res: Response) => {
     title,
     ingredients,
     instructions,
+    image: validation.data.image,
     comments: [],
     dateCreated: new Date(),
     dateUpdated: new Date(),
@@ -165,6 +166,7 @@ export const updateRecipe = async (req: Request, res: Response) => {
     if (data.ingredients !== undefined) set.ingredients = data.ingredients;
     if (data.instructions !== undefined) set.instructions = data.instructions;
     if (data.difficulty !== undefined) set.difficulty = data.difficulty;
+    if (data.image !== undefined) set.image = data.image;
     // comments here managed by comment endpoints
 
     await collections.recipes?.updateOne(

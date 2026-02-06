@@ -10,6 +10,7 @@ export interface Recipe {
   dateCreated: Date;
   dateUpdated?: Date;
   difficulty?: "easy" | "medium" | "hard";
+  image?: string;
 }
 
 export interface Comment {
@@ -32,6 +33,7 @@ export const createRecipeSchema = z.object({
     .min(1, "Instructions are required")
     .max(5000, "Instructions too long"),
   difficulty: z.enum(["easy", "medium", "hard"]).optional().default("medium"),
+  image: z.string().trim().url("Image must be a valid URL").optional(),
 });
 
 export const updateRecipeSchema = z.object({
@@ -51,6 +53,7 @@ export const updateRecipeSchema = z.object({
     .max(5000, "Instructions too long")
     .optional(),
   difficulty: z.enum(["easy", "medium", "hard"]).optional(),
+  image: z.string().trim().url("Image must be a valid URL").optional(),
 });
 
 // comment schemas
